@@ -1,0 +1,17 @@
+{
+  "geode": "5.8.2",
+  "gd": {
+    "win": "2.2081",
+    "android": "2.2081",
+    "mac": "2.2081",
+    "ios": "2.2081"
+  },
+  "id": "br0cadegames.flappy-maker-bird",
+  "name": "Flappy Maker Bird",
+  "version": "v1.0.0",
+  "developer": "br0cadegames",
+  "description": "Adds a BIRD? button to the Geometry Dash main menu with a Flappy Bird-style minigame.",
+  "links": {
+    "source": "https://github.com/geode-sdk/geode"
+  }
+}
