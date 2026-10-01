@@ -1,0 +1,36 @@
+name: Build Flappy Maker Bird for Android
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["**"]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Android64
+            target: Android64
+          - name: Android32
+            target: Android32
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Geode mod
+        uses: geode-sdk/build-geode-mod@main
+        id: build
+        with:
+          target: ${{ matrix.target }}
+          build-config: Release
+
+      - name: Upload .geode
+        uses: actions/upload-artifact@v4
+        with:
+          name: flappy-maker-bird-${{ matrix.name }}
+          path: ${{ steps.build.outputs.build-output }}/*.geode
